@@ -1,0 +1,22 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: msa-architecture-server-config
+#config server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/minjipi/msa_spring_cloud_config_server.git
+
+eureka:
+  client:
+    serviceUrl:
+    #defaultZone: http://${EUREKA_SERVER_IP}:9091/eureka/   # 컨테이너 이미지 만들 때
+      defaultZone: http://localhost:9091/eureka/              # 로컬에서 테스트할 때
+    enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id:

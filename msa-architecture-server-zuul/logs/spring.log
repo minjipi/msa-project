@@ -1,0 +1,51 @@
+2021-07-07 10:09:07.140  INFO 6280 --- [main] c.m.msa.zuul.MicroServiceApplication     : No active profile set, falling back to default profiles: default
+2021-07-07 10:09:07.811  WARN 6280 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2021-07-07 10:09:07.811  WARN 6280 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'hystrix.stream' contains invalid characters, please migrate to a valid format.
+2021-07-07 10:09:08.061  INFO 6280 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7def1c4c-aa79-3d03-8efb-579805db0c91
+2021-07-07 10:09:08.390  INFO 6280 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e167a20b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-07-07 10:09:08.759  INFO 6280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9999 (http)
+2021-07-07 10:09:08.790  INFO 6280 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-07-07 10:09:08.790  INFO 6280 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2021-07-07 10:09:08.931  INFO 6280 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-07-07 10:09:08.931 DEBUG 6280 --- [main] o.s.web.context.ContextLoader            : Published root WebApplicationContext as ServletContext attribute with name [org.springframework.web.context.WebApplicationContext.ROOT]
+2021-07-07 10:09:08.931  INFO 6280 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1776 ms
+2021-07-07 10:09:09.056  WARN 6280 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-07-07 10:09:09.056  INFO 6280 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-07-07 10:09:09.072  INFO 6280 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@48df4071
+2021-07-07 10:09:09.826 DEBUG 6280 --- [main] o.springframework.web.filter.CorsFilter  : Filter 'corsFilter' configured for use
+2021-07-07 10:09:09.888  WARN 6280 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2021-07-07 10:09:09.888  INFO 6280 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2021-07-07 10:09:09.951 DEBUG 6280 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2021-07-07 10:09:10.091  INFO 6280 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-07-07 10:09:10.107 DEBUG 6280 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-07-07 10:09:10.170 DEBUG 6280 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 2 mappings in 'requestMappingHandlerMapping'
+2021-07-07 10:09:10.185 DEBUG 6280 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2021-07-07 10:09:10.201 DEBUG 6280 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-07-07 10:09:10.826  INFO 6280 --- [main] o.s.c.n.zuul.ZuulFilterInitializer       : Starting filter initializer
+2021-07-07 10:09:10.873  INFO 6280 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-07-07 10:09:10.995  INFO 6280 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2021-07-07 10:09:11.042  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2021-07-07 10:09:11.105  INFO 6280 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2021-07-07 10:09:11.105  INFO 6280 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2021-07-07 10:09:11.245  INFO 6280 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2021-07-07 10:09:11.245  INFO 6280 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2021-07-07 10:09:11.480  INFO 6280 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2021-07-07 10:09:11.542  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2021-07-07 10:09:11.822  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2021-07-07 10:09:11.825  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2021-07-07 10:09:11.827  INFO 6280 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2021-07-07 10:09:11.831  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1625620151830 with initial instances count: 1
+2021-07-07 10:09:11.835  INFO 6280 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSA-ARCHITECTURE-SERVER-ZUUL with eureka with status UP
+2021-07-07 10:09:11.836  INFO 6280 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1625620151836, current=UP, previous=STARTING]
+2021-07-07 10:09:11.838  INFO 6280 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSA-ARCHITECTURE-SERVER-ZUUL/192.168.1.100: registering service...
+2021-07-07 10:09:11.864  INFO 6280 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSA-ARCHITECTURE-SERVER-ZUUL/192.168.1.100 - registration status: 204
+2021-07-07 10:09:11.901  INFO 6280 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9999 (http) with context path ''
+2021-07-07 10:09:11.902  INFO 6280 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 9999
+2021-07-07 10:09:11.902  INFO 6280 --- [main] c.m.msa.zuul.MicroServiceApplication     : Started MicroServiceApplication in 5.684 seconds (JVM running for 6.33)
+2021-07-07 10:14:11.553  INFO 6280 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

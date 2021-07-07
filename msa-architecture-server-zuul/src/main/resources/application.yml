@@ -1,0 +1,67 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: msa-architecture-server-zuul
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: 'msa-architecture-server-config'
+
+#Eureka Client   
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://${EUREKA_SERVER_IP}:9091/eureka/   # 컨테이너 이미지 만들 때
+      defaultZone: http://localhost:9091/eureka/              # 로컬에서 테스트할 때
+    enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id:
+
+hystrix:
+  command:
+    default:
+      execution:
+        iso lation:
+          thread:
+            timeoutInMilliseconds: 30000
+
+ribbon:
+  ReadTimeout: 30000
+  Socket-timeout: 30000
+  connection-timeout: 30000
+  eureka:
+    enabled: true
+
+zuul:
+  ignoredServices: '*'
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  sensitive-headers:
+  routes:
+    member:
+      path: /api/v1/member/**
+      serviceId: msa-service-coffee-member
+      strip-prefix: false
+    order:
+      path: /api/v1/order/**
+      serviceId: msa-service-coffee-order
+      strip-prefix: false
+    status:
+      path: /api/v1/status/**
+      serviceId: msa-service-coffee-status
+      strip-prefix: false
+  retryable: true
+  host:
+    connect-timeout-millis: 6000
+    socket-timeout-millis: 6000
+
+logging:
+  path: logs
+  level:
+    org.springframework: INFO
+    org.springframework.web: DEBUG
+    com.minji.msa.zuul.system: DEBUG
+    com.minji.msa.zuul.springboot: DEBUG

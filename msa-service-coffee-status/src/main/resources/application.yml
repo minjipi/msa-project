@@ -1,0 +1,45 @@
+server:
+  port: 8083
+
+#kafka_server_ip: ${KAFKA_SERVER_IP}        # 도커 이미지 만들 때
+#kafka_server_port: ${KAFKA_SERVER_PORT}    # 도커 이미지 만들 때
+
+kafka_server_ip: 192.168.1.100              # 로컬에서 테스트할 떄
+kafka_server_port: 9092                     # 로컬에서 테스트할 떄
+
+spring:
+  application:
+    name: msa-service-coffee-status
+  h2:
+    console:
+      enabled: true
+      path: /h2console
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: 'msa-architecture-server-config' #update -> curl -X POST http://localhost:8081/actuator/refresh
+
+#Eureka Client
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.1.100:9091/eureka/
+    enabled: true
+  instance:
+    preferIpAddress: true
+    instance-id:
+
+
+logging:
+  path: logs
+  level:
+    org.springframework: INFO
+    org.springframework.web: DEBUG
+    com.minji.msa.zuul.system: DEBUG
+    com.minji.msa.zuul.springboot: DEBUG
