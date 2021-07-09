@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/msa-architecture-server-config" />
             <option value="$PROJECT_DIR$/msa-architecture-server-eureka" />
             <option value="$PROJECT_DIR$/msa-architecture-server-zuul" />
+            <option value="$PROJECT_DIR$/msa-service-coffee-admin" />
+            <option value="$PROJECT_DIR$/msa-service-coffee-client" />
             <option value="$PROJECT_DIR$/msa-service-coffee-member" />
             <option value="$PROJECT_DIR$/msa-service-coffee-order" />
             <option value="$PROJECT_DIR$/msa-service-coffee-status" />

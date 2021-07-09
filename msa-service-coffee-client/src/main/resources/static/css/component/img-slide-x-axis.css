@@ -1,0 +1,107 @@
+/* this 'slide' moves to the left (x-axis) */ 
+/* general style setting (slide area) */
+.section_x-slide-viewport{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(240, 240, 240);
+} 
+.section_x-slide-area, .section_x-slide-li-contents > li > a, .section_x-slide-li-contents > li > a img{
+    width: 100vw;
+    max-height: 18.75rem; /* 300px = 18.75rem */
+}
+.section_x-slide-area{
+    overflow: hidden;
+}
+.section_x-slide-li-contents{
+    display: flex;
+    flex-direction: row;
+}
+.section_x-slide-li-contents > li{
+    width: 100%;
+    position: relative;
+    transition: transform 1s; /* all 속성을 변경할 때 속도 1s로 변화되기 */
+}
+.section_x-slide-li-contents > li > a{
+    display: block;
+}
+
+/* manual slide style setting */
+.section_x-slide-viewport > input{
+    display: none;
+}
+#slide1:checked ~ .section_x-slide-area .section_x-slide-li-contents > li{
+    transform: translateX(0%);
+}
+#slide2:checked ~ .section_x-slide-area .section_x-slide-li-contents > li{
+    transform: translateX(-100%);
+}
+#slide3:checked ~ .section_x-slide-area .section_x-slide-li-contents > li{
+    transform: translateX(-200%);
+}
+#slide4:checked ~ .section_x-slide-area .section_x-slide-li-contents > li{
+    transform: translateX(-300%);
+}
+
+/* slide controller style setting */
+.left, .right{
+    position: absolute;
+    font-size: 1.875rem;
+    color: black;
+    padding: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.left{
+    left: 0.5rem; /* 8px */
+}
+.right{
+    right: 0.5rem; /* 8px */
+}
+
+/* auto slide style setting */
+.section_x-slide-area .section_slide-auto > li{
+    transform: translateX(0%);
+    animation-name: leftMoveAnimation;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes leftMoveAnimation{
+    0% {
+        left: 0%;
+    }
+    18%{
+        left: 0%;
+    }
+    20% {
+        left: -100%;
+    }
+    38% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    58% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    78% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    98% {
+        left: -400%;
+    }
+    100% {
+        left: 0%;
+    }
+}

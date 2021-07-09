@@ -55,8 +55,8 @@ zuul:
       strip-prefix: false
   retryable: true
   host:
-    connect-timeout-millis: 6000
-    socket-timeout-millis: 6000
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
 
 logging:
   path: logs

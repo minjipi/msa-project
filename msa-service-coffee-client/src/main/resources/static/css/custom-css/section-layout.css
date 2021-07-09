@@ -1,0 +1,11 @@
+/* All <section> tag : flex box setting */
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*margin-bottom: 1.25rem; */
+    border-bottom: 1px solid rgb(207, 207, 207);
+    margin-top: 0.3rem;
+}

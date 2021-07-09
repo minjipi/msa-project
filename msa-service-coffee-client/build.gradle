@@ -1,0 +1,13 @@
+apply plugin: 'war'
+
+
+dependencies {
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-actuator:2.1.7.RELEASE'
+
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.1.2.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.1.2.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-config-client:2.1.3.RELEASE'
+}

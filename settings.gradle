@@ -15,7 +15,9 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'msa-book-additional'
+rootProject.name = 'msa-minji'
+include 'msa-service-coffee-admin'
+include 'msa-service-coffee-client'
 include 'msa-service-coffee-member'
 include 'msa-service-coffee-order'
 include 'msa-service-coffee-status'

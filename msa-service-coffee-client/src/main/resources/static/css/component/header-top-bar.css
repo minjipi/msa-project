@@ -1,0 +1,45 @@
+/* 1st flex box */
+header{
+    width: 100%; /* not 100vw, because of 'scroll bar' width */
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    z-index: 98;
+    font-size: 1rem;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    box-shadow: 0 0.3125rem 0.625rem -0.625rem rgb(66, 66, 66);
+}
+/* 2nd flex box */
+header > *{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+}
+header .header_col1-top-title{
+    align-items: center; /* = partial web browser do not support. but it's ok */
+    font-weight: bold;
+    height: 3.75rem;
+    padding: 1.25rem 0.625rem;
+}
+
+
+/* .header_col1-top-tile : items align */
+header > .header_col1-top-title > *:first-child{
+    text-align: left;
+    flex-basis: 4.375rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+header > .header_col1-top-title > *:nth-child(2){
+    text-align: center;
+    flex-basis: auto;
+    flex-shrink: 0;
+}
+header > .header_col1-top-title > *:last-child{
+    text-align: right;
+    flex-basis: 4.375rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+}

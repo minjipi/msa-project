@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSA Coffee</title>
+    <!-- icon setting -->
+    <link rel="icon" sizes="192x192" href="./pic/website_icon.png">
+    <link rel="apple-touch-icon" href="./pic/website_icon.png">
+    <meta name="msapplication-square70x70logo" content="./pic/website_icon.png">
+    <!-- Safari meta data setting -->
+    <meta name="apple-mobile-web-app-title" content="토찌카페">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+
+<body>
+<!-- top bar area -->
+<header>
+    <h1 class="hidden-title" hidden>Startbucks</h1> <!-- hidden -->
+    <div class="header_col1-top-title">
+        <div class="top-left-icon">
+            <a href="#"><i class="icon-bell"></i></a>
+        </div>
+        <span class="top-title">
+            이름 : <input id="userName" type="text"/> <br/>
+
+        </span>
+
+        <div class="top-right-icon">
+            <a href="#"><i class="icon-search"></i></a>
+        </div>
+    </div>
+</header>
+
+<section>
+
+</section>
+
+
+<!--    1 섹션-->
+<section>
+
+    <div class="discount-title">
+        <h2>주문내역</h2>
+        <span>전체보기<i class="icon-angle-right"></i></span>
+    </div>
+    <div id="ordered">
+        <br>
+
+    </div>
+</section>
+
+
+<!--    2 섹션-->
+<section>
+    <div class="discount-title">
+        <h2>메뉴</h2>
+        <span>전체보기<i class="icon-angle-right"></i></span>
+    </div>
+
+    <div class="section_col5-align">
+
+        <button class="button" type="button" id="iceamericano">
+            <img src="./pic/mini1.png"/>아메리카노
+        </button>
+
+
+        <button class="button" type="button" id="latte">
+            <img src="./pic/mini5.png"/>라떼
+        </button>
+
+
+        <button class="button" type="button" id="ade">
+            <img src="./pic/mini8.png"/>에이드
+        </button>
+
+    </div>
+
+</section>
+
+<!--    3 섹션-->
+<section>
+    <div class="discount-title">
+        <h2>장바구니</h2>
+    </div>
+    <div id="keep">
+        <br>
+    </div>
+    <div>
+        <span>전체보기<i class="icon-angle-right"></i></span>
+        <button id="order" class="order-button" onclick="checkMember()">주문하기</button>
+    </div>
+</section>
+
+
+<!--<footer>-->
+<!--    <div class="policy-area">-->
+<!--        <span>사업자정보확인</span>-->
+<!--        <span>이용약관</span>-->
+<!--        <span>전자금융거래이용약관</span>-->
+<!--        <span class="privacy-policy">개인정보처리방침</span>-->
+<!--    </div>-->
+<!--</footer>-->
+
+<!--<nav>-->
+<!--    <a href="#"><i class="icon-home active-navigator"></i>홈</a>-->
+<!--    <a href="#"><i class="icon-search"></i>검색</a>-->
+<!--    <a href="#"><i class="icon-heart"></i>내 메뉴</a>-->
+<!--    <a href="#"><i class="icon-list"></i>주문내역</a>-->
+<!--    <a href="#"><i class="icon-smile"></i>my</a>-->
+<!--</nav>-->
+</body>
+
+<script>
+    let keep = document.getElementById("keep");
+    let ordered = document.getElementById("ordered");
+    let order_id="";
+    let menu = "menu";
+    iceamericano_btn = document.getElementById('iceamericano');
+    latte_btn = document.getElementById('latte');
+    ade_btn = document.getElementById('ade');
+
+
+    iceamericano_btn.onclick = function () {
+        menu += ",iceamericano";
+        console.log(menu);
+
+        if (keep.innerHTML.includes("아메리카노")) {
+            let iceamericano_text = document.getElementById("iceamericano_text").innerText;
+            let icaamericano_num = Number(iceamericano_text.split("X")[1]) + Number(1);
+            document.getElementById("iceamericano_text").innerText = "아메리카노 X " + icaamericano_num;
+            console.log(icaamericano_num);
+        } else {
+            console.log("1번쨰");
+            keep.innerHTML = keep.innerHTML + "<div class='section_x-slide-area'><ul><div class='notice'><div class='section_y-slide-area'><span id='iceamericano_text'>아메리카노 X 1</span><br></div></div></ul></div>";
+        }
+
+
+    };
+
+    latte_btn.onclick = function () {
+        menu += ",latte";
+        console.log(menu);
+
+        if (keep.innerHTML.includes("라떼")) {
+            let latte_text = document.getElementById("latte_text").innerText;
+            let latte_num = Number(latte_text.split("X")[1]) + Number(1);
+            document.getElementById("latte_text").innerText = "라떼 X " + latte_num;
+            console.log(latte_num);
+        } else {
+            console.log("1번쨰");
+            keep.innerHTML = keep.innerHTML + "<div class='section_x-slide-area'><ul><div class='notice'><div class='section_y-slide-area'><span id='latte_text'>라떼 X 1</span><br></div></div></ul></div>";
+        }
+
+    };
+    ade_btn.onclick = function () {
+        menu += ",ade";
+        console.log(menu);
+        if (keep.innerHTML.includes("에이드")) {
+            let ade_text = document.getElementById("ade_text").innerText;
+            let ade_num = Number(ade_text.split("X")[1]) + Number(1);
+            document.getElementById("ade_text").innerText = "에이드 X " + ade_num;
+            console.log(ade_num);
+        } else {
+            console.log("1번쨰");
+            keep.innerHTML = keep.innerHTML + "<div class='section_x-slide-area'><ul><div class='notice'><div class='section_y-slide-area'><span id='ade_text'>에이드 X 1</span><br></div></div></ul></div>";
+        }
+
+    };
+
+    // order.onclick = function () {
+    //     console.log(menu);
+    // };
+
+    function sendOrder(userId) {
+        var httpRequest = new XMLHttpRequest();
+
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                var json = JSON.parse(httpRequest.responseText);
+                order_id = json.resultVO._id;
+                checkStatus();
+            }
+        };
+        httpRequest.open("POST", "http://192.168.1.103:32016/api/v1/order", true);
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        console.log("{\"_id\":\"string\",\"orderName\":\"" + menu + "\",\"userId\":\"" + userId + "\",\"userName\":\"" + document.getElementById('userName').value + "\"}");
+        httpRequest.send("{\"_id\":\"string\",\"orderName\":\"" + menu + "\",\"userId\":\"" + userId + "\",\"userName\":\"" + document.getElementById('userName').value + "\"}");
+    }
+
+
+    function checkMember() {
+        ordered.innerHTML = keep.innerHTML +  "<div class='section_x-slide-area'><ul><div class='notice'><div class='section_y-slide-area'><span id='status_text'>준비중☕️🐈</span><br></div></div></ul></div>";;
+        keep.innerHTML = "<br>";
+
+        var httpRequest = new XMLHttpRequest();
+
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                var json = JSON.parse(httpRequest.responseText);
+
+                for (var result in json.resultVO) {
+                    if (json.resultVO[result].userName == document.getElementById('userName').value) {
+                        console.log(json.resultVO[result]._id);
+                        sendOrder(json.resultVO[result]._id)
+                    }
+                }
+            }
+        };
+
+        httpRequest.open("GET", "http://192.168.1.103:32016/api/v1/member", true);
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        httpRequest.send();
+
+    }
+
+
+    function checkStatus() {
+        console.log(order_id);
+        var httpRequest = new XMLHttpRequest();
+
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+                var json = JSON.parse(httpRequest.responseText);
+
+                for (var result in json.resultVO) {
+                    if (json.resultVO[result].orderId == order_id) {
+                        console.log(json.resultVO[result].statusName);
+                        if(json.resultVO[result].statusName==='DONE') {
+                            document.getElementById("status_text").innerText="완성☕️🐈";
+                        }
+                    }
+                }
+            }
+        };
+
+        httpRequest.open("GET", "http://192.168.1.103:32016/api/v1/status", true);
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        httpRequest.send();
+
+        setTimeout(checkStatus, 3000);
+    };
+
+
+
+</script>
+
+</html>

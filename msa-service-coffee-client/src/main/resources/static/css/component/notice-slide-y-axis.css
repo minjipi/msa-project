@@ -1,0 +1,79 @@
+.section_y-slide-area, .section_y-slide-li-contents > li > a{
+    width: 100%;
+    height: 0.9375rem; /* = font-size + 1 */
+}
+.section_y-slide-area{
+    overflow: hidden;
+}
+
+.section_y-slide-li-contents{
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    /* 자식 태그 span의 relative로 해서 top: -100% 먹히게 하기 위함 */
+}
+.section_y-slide-li-contents > li > a{
+    display: block;
+}
+
+.section_y-slide-li-contents > li > a > span{
+    position: relative;
+}
+
+.section_y-slide-li-row2 > li > a > span{
+    transform: translateY(0%);
+    animation-name: topMoveAnimationRow2;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;  
+}
+
+.section_y-slide-li-row3 > li > a > span{
+    transform: translateY(0%);
+    animation-name: topMoveAnimationRow3;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;  
+}
+
+@keyframes topMoveAnimationRow2{
+    0% {
+        top: 0%;
+    }
+    48% {
+        top: 0%;
+    }
+    50%{
+        top: -100%;
+    }
+    98% {
+        top: -100%;
+    }
+    100% {
+        top: 0%;
+    }
+}
+
+@keyframes topMoveAnimationRow3{
+    0% {
+        top: 0%;
+    }
+    31% {
+        top: 0%;
+    }
+    33% {
+        top: -100%;
+    }
+    64% {
+        top: -100%;
+    }
+    66% {
+        top: -200%;
+    }
+    98% {
+        top: -200%;
+    }
+    100% {
+        top: 0%;
+    }
+}

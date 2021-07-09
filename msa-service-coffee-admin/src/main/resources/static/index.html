@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSA Coffee - 관리자</title>
+  <!-- icon setting -->
+  <link rel="icon" sizes="192x192" href="./pic/website_icon.png">
+  <link rel="apple-touch-icon" href="./pic/website_icon.png">
+  <meta name="msapplication-square70x70logo" content="./pic/website_icon.png">
+  <!-- Safari meta data setting -->
+  <meta name="apple-mobile-web-app-title" content="토찌카페">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+
+<body>
+<!-- top bar area -->
+<header>
+  <h1 class="hidden-title" hidden>Startbucks</h1> <!-- hidden -->
+  <div class="header_col1-top-title">
+    <div class="top-left-icon">
+      <a href="#"><i class="icon-bell"></i></a>
+    </div>
+    <span class="top-title">
+            관리자
+
+        </span>
+
+    <div class="top-right-icon">
+
+    </div>
+  </div>
+</header>
+
+<section>
+
+</section>
+
+
+<!--    1 섹션-->
+<section>
+
+  <div class="discount-title">
+    <h2>주문내역</h2>
+    <span>전체보기<i class="icon-angle-right"></i></span>
+  </div>
+  <div id="ordered">
+    <br>
+
+  </div>
+</section>
+
+
+</body>
+
+<script>
+
+
+  let ordered = document.getElementById("ordered");
+
+  function completeMenu(order) {
+
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+        var json = JSON.parse(httpRequest.responseText);
+
+        console.log(json);
+      }
+    };
+
+    httpRequest.open("PUT", "http://192.168.1.103:32016/api/v1/status", true);
+    httpRequest.setRequestHeader("Content-Type", "application/json");
+    httpRequest.send("{\"_id\": \""+order._id+"\",\"orderId\": \""+order.orderId+"\",\"orderName\": \""+order.orderName+"\",\"statusName\": \""+order.statusName+"\",\"userId\": \""+order.userId+"\",\"userName\": \""+order.userName+"\"}");
+
+  }
+
+  function complete(order){
+    document.getElementById(order._id).remove();
+    order.statusName="DONE";
+    console.log(order);
+    completeMenu(order)
+
+  }
+
+
+
+
+
+  function checkStatus() {
+    ordered.innerHTML="<br>"
+    var httpRequest = new XMLHttpRequest();
+
+    httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200) {
+        var json = JSON.parse(httpRequest.responseText);
+
+        for (var result in json.resultVO) {
+
+          if(json.resultVO[result].statusName==='ORDERED') {
+            let add_menu="";
+            if(ordered.innerHTML.includes(json.resultVO[result]._id)){
+              continue;
+            }
+
+            var menus = json.resultVO[result].orderName.split(',');
+            console.log(menus);
+
+            var iceamericano = 0;
+            var latte = 0;
+            var ade = 0;
+
+            for (var i=0; i<menus.length; i++) {
+              if(menus[i] === 'iceamericano'){
+                iceamericano+=1;
+              }
+              if(menus[i] === 'latte'){
+                latte+=1;
+              }
+              if(menus[i] === 'ade'){
+                ade+=1;
+              }
+            }
+            add_menu += json.resultVO[result].userName + " 고객님의 ";
+            if(iceamericano!=0) {
+              add_menu += "[아이스 아메리카노] X " + iceamericano;
+            }
+            if(latte!=0) {
+              add_menu += "[라떼] X " + latte;
+            }
+            if(ade!=0) {
+              add_menu += "[에이드] X " + ade;
+            }
+
+
+
+            var order = JSON.stringify(json.resultVO[result]);
+            ordered.innerHTML = ordered.innerHTML+"<div id="+json.resultVO[result]._id+" class='section_x-slide-area'><ul><div class='notice'><span id='status_text'>"+add_menu+"  준비중☕️🐈</span> <button onclick='complete("+order+")'>완료</button><br></div></ul></div>";
+          }
+
+        }
+      }
+    };
+
+    httpRequest.open("GET", "http://192.168.1.103:32016/api/v1/status", true);
+    httpRequest.setRequestHeader("Content-Type", "application/json");
+    httpRequest.send();
+
+    setTimeout(checkStatus, 3000);
+  };
+
+  checkStatus();
+
+</script>
+
+</html>

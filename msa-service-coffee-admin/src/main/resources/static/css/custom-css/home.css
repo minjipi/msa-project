@@ -1,0 +1,231 @@
+/* when you connect this website, show 'this company logo' */
+
+.button {
+    border: hidden;
+    background-color: #2B3E38;
+    color: white;
+    font-family: 'Nanum Gothic';
+}
+
+.order-button {
+    background-color: #2B3E38;
+    color: white;
+    font-family: 'Nanum Gothic';
+    border-radius: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+.screen-fade-out {
+    /*background-image: url(../../pic/start_screen.png);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    animation-name: screenViewFadeOut;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-delay: 2ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes screenViewFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* reference. "header-component.css" */
+.header_col2-sub-title .active-page {
+    border-bottom: 0.3125rem solid rgb(105, 172, 105); /* reference. box-sizing : border-box */
+    color: rgb(105, 172, 105);
+    font-weight: bold;
+}
+
+
+/* refrence. "section-component.css" & "slide-x-axis.css" */
+body > section:first-of-type {
+    margin-top: 3.5rem; /* = <header> tag's height */
+}
+
+/* 1st <section> style */
+/* reference. "icon-col5.css" */
+
+
+/* 2nd <section> style */
+section:nth-of-type(2) {
+    padding: 1.25rem 0.625rem;
+}
+
+
+.discount-title {
+    width: 100%;
+    padding-bottom: 0.625rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+.discount-title > * {
+    font-size: 1.375rem;
+    font-weight: bold;
+    margin-right: 0.625rem;
+}
+
+.discount-title > *:nth-last-child(2) {
+    flex-basis: auto;
+    flex-grow: 1;
+    color: saddlebrown;
+}
+
+
+.discount-title > *:last-child {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: gray;
+    margin-right: 0.625rem;
+}
+
+/* 3th <section> style */
+section:nth-of-type(3) {
+    padding: 1.25rem 0.625rem;
+}
+
+
+/* 3th <section> style */
+section:nth-of-type(4) {
+    padding: 1.25rem 0.625rem;
+}
+
+.notice {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.875rem;
+    padding-top: 0.9375rem;
+    padding-bottom: 0.9375rem;
+}
+
+.notice > *:first-child {
+    font-weight: bold;
+    padding-right: 0.4375rem;
+    flex-shrink: 0;
+    font-size: medium;
+    font-family: sans-serif;
+}
+
+.notice:nth-of-type(n+2) {
+    border-top: 1px solid rgb(197, 197, 197);
+}
+
+/* <footer> style */
+footer {
+    width: 100%;
+    padding-bottom: 6.25rem;
+}
+
+footer * {
+    color: rgb(180, 180, 180);
+    font-size: 0.625rem; /* 0.625rem = 10px (if. web browser default font-size 16px) */
+}
+
+.policy-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.875rem;
+    /*margin-bottom: 1.25rem;*/
+
+}
+
+.policy-area > * {
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+}
+
+.policy-area > *:not(*:last-child) {
+    border-right: 1px solid rgb(197, 197, 197);
+}
+
+/* this code is the same as the one above */
+/* .policy-area > *:nth-of-type(n+2){
+    border-left: 1px solid rgb(197, 197, 197);
+} */
+
+.privacy-policy {
+    font-weight: bold;
+    color: black; /* CSS Style Precedence = class name(.privacy-policy) > tag name(footer) */
+}
+
+.company-info {
+    padding-left: 0.625rem;
+}
+
+.company-info input[id="policy-check"] + label {
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.company-info input[id="policy-check"] {
+    display: none;
+}
+
+.company-info label:after {
+    content: "\f106";
+    font-family: 'fontello';
+    font-weight: bold;
+}
+
+.company-info input[id="policy-check"]:checked + label:after {
+    content: "\f107";
+    font-family: 'fontello';
+    font-weight: bold;
+}
+
+.company-info input[id="policy-check"]:checked ~ .company-info-area-content {
+    display: none;
+}
+
+.company-info-area-content {
+    padding-top: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.875rem;
+    color: gray;
+}
+
+.company-info-area-content > * {
+    margin-bottom: 0.625rem;
+}
+
+.company-info-area-content > table {
+    margin: 0.9375rem;
+}
+
+.company-info-area-content > table, td {
+    border: 1px solid rgb(197, 197, 197);
+    padding: 0.625rem;
+}
+
+.company-notice {
+    padding-top: 0.625rem;
+}
+
+/* <nav> style */
+/* reference. nav-component.css */
