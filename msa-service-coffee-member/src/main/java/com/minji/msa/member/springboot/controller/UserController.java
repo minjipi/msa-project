@@ -40,11 +40,6 @@ public class UserController {
     })
     @GetMapping
     public ResponseEntity<ResponseVO> getAllUser(){
-        try {
-            Thread.sleep(40 * 1000);
-        } catch (InterruptedException ie) {
-            Thread.currentThread().interrupt();
-        }
         //결과 객체선언
         ResponseVO responseVO = new ResponseVO();
         ResponseMetaVO responseMetaVO = new ResponseMetaVO();
