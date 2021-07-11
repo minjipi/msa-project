@@ -97,18 +97,23 @@ public class OrderController {
         ResponseVO responseVO = new ResponseVO();
         ResponseMetaVO responseMetaVO = new ResponseMetaVO();
 
+        //        //Member 조회
+//        String userName = iMemberClient.getUseById(orderVO.getUserId());
+//        logger.debug("Member 조회 getUseById : 결과 userName ===> "
+//                + userName);
+
         //Member 조회
-        String userName = iMemberClient.getUseById(orderVO.getUserId());
-        logger.debug("Member 조회 getUseById : 결과 userName ===> "
-                + userName);
+        String _id = iMemberClient.getUseByUserName(orderVO.getUserName());
+        logger.debug("Member 조회 getUseByUserName : 결과 _id ===> "
+                + _id);
 
         //입력
         orderVO.set_id(UUID.randomUUID().toString());
 
-        if(null == userName){
-            orderVO.setUserId("");
+        if(_id.equals("fallback")){
+            orderVO.setUserName("ANONYMOUS");
         }else{
-            orderVO.setUserName(userName);
+            orderVO.setUserId(_id);
         }
 
         OrderVO resultOrderVO = orderServiceImpl.addOrder(orderVO);

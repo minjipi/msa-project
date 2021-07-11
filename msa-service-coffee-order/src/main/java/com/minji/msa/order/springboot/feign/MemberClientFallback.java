@@ -21,7 +21,7 @@ public class MemberClientFallback implements IMemberClient {
     }
 
     @Override
-    public String getUseById(String _id) {
+    public String getUseByUserName(String userName) {
         logger.debug("MemberClientFallback");
         return new String("fallback");
     }

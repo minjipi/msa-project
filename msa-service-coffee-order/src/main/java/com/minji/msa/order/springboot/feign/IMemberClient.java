@@ -16,8 +16,8 @@ public interface IMemberClient {
     @GetMapping(value = "/api/v1/member")
     public ResponseEntity<ResponseVO> getAllUser();
 
-    @GetMapping(value = "/api/v1/member/{_id}")
-    public String getUseById(@PathVariable(value = "_id")  String _id);
+    @GetMapping(value = "/api/v1/member/{userName}")
+    public String getUseByUserName(@PathVariable(value = "userName")  String userName);
 
     @PostMapping(value = "/api/v1/member")
     public ResponseEntity<ResponseVO> addUser(@RequestBody UserVO userVO);

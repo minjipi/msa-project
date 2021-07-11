@@ -5,9 +5,11 @@ spring:
   application:
     name: msa-architecture-server-config
 #config server
+
   cloud:
     config:
       server:
+        default-label: main
         git:
           uri: https://github.com/minjipi/msa_spring_cloud_config_server.git
 

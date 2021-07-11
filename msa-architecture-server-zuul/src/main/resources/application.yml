@@ -6,6 +6,8 @@ spring:
     name: msa-architecture-server-zuul
   cloud:
     config:
+      label: main # 이게 git branch name
+      fail-fast: true # 클라우드 설정 못가져오면 application 실행 안되도록 세팅
       discovery:
         enabled: true
         service-id: 'msa-architecture-server-config'
